@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Loan Approval Predictor</title>
+</head>
+<body>
+    <div align="center">
+        <h1>Loan Approval Prediction System</h1>
+        <h3>Fill your details below</h3>
+        <br><br>
+
+        <div align="center" style="border:3px solid black">
+            <form action="{{ url_for('predict') }}", method="POST">
+
+                <label for="Gender">Gender</label>
+                <select name="Gender" id="Gender">
+                    <option value="">Choose</option>
+                    <option value="0">Male</option>
+                    <option value="1">Female</option>
+                </select>
+                <br><br>
+
+                <label for="Married">Married</label>
+                <select name="Married" id="Married">
+                    <option value="">Choose</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+                <br><br>
+
+                <label for="Dependents">Dependents</label>
+                <select name="Dependents" id="Dependents">
+                    <option value="">Choose</option>
+                    <option value="0">No Dependents</option>
+                    <option value="1">1</option>
+                    <option value="1">2</option>
+                    <option value="3">More than 2</option>
+                </select>
+                <br><br>
+
+                <label for="Education">Education</label>
+                <select name="Education" id="Education">
+                    <option value="">Choose</option>
+                    <option value="1">Graduate</option>
+                    <option value="0">Not Graduate</option>
+                </select>
+                <br><br>
+
+                <label for="Self_Employed">Self Employed</label>
+                <select name="Self_Employed" id="Self_Employed">
+                    <option value="">Choose</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+                <br><br>
+
+                <label for="Credit_History"> Credit History </label>
+                <select name="Credit_History" id="Credit_History">
+                    <option value="">Choose</option>
+                    <option value="1">Yes</option>
+                    <option value="0">No</option>
+                </select>
+                <br><br>
+
+                <label for="Property_Area"> Property Area </label>
+                <select name="Property_Area" id="Property_Area">
+                    <option value="">Choose</option>
+                    <option value="0">Urban</option>
+                    <option value="1">Rural</option>
+                    <option value="2">Semi Rural</option>
+                </select>
+                <br><br>
+
+                <label> Applicant Income </label>
+                <input type="text", placeholder="Enter Monthly Income", name="ApplicantIncome"/>
+                <br><br>
+
+                <label> Co-Applicant Income </label>
+                <input type="text", placeholder="Enter 0, If no Income", name="CoapplicantIncome"/>
+                <br><br>
+
+                <label> Loan Amount </label>
+                <input type="text", placeholder="Required Loan", name="LoanAmount"/>
+                <br><br>
+
+                <label> Loan Amount Term </label>
+                <input type="text", placeholder="In Months", name="Loan_Amount_Term"/>
+                <br><br>
+
+                <input type="submit", value="Submit">
+        </form>
+        </div>
+
+        <div>
+            <h1>{{ prediction_text }}</h1>
+            <a href="{{ url_for('home') }}">Check New</a>
+        </div>
+    </div>
+</body>
+</html>
